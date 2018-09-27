@@ -1,0 +1,25 @@
+   MAIN
+   {
+	load a board of Strings (mostly one letter Strings) from an input file (similar to swamp)
+	
+	// NOW USING EVERY STRING IN THE GRID AS AN ORIGIN POINT
+	// FORM ALL POSSIBLE STRINGS IN THE GRID
+	
+	for r=0 to < board.length
+		for c = 0 to board[r].length
+			depthFirstSearch( board, r, c ,"");
+   }
+   private static void depthFirstSearch(int[][] board, int r, int c, String word )
+   {	
+	APPEND letter at [r][c] to WORD
+
+	PRINT THE WORD or add it to an ArrayList/TreeSet then print ArrayList/TreeSet at end of program)
+	
+	// DO THE SAME 8 CASES YOU DID WITH SWAMP
+	
+	IF N (or S or SE or E etc) IS A LOWER CASE LETTER
+		MAKE [r][c] UPPERCASE // mark it as IN USE in this string
+		RECURSE PASSING IN BOARD, COORDS OF N (or S or SE or E etc ), AND WORD
+		MAKE [r][c] LOWERCASE // un mark it as NOT in use in this string
+		
+   }

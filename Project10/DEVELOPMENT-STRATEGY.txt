@@ -1,0 +1,46 @@
+DONT WORK ON THE GUI UNTIL YOU GET YOUR ENTIRE PROGRAM EVERYTHING WORKING PERFECT 
+FROM THE COMMAND LINE. 
+BEFORE YOU SEARCH THE DICTIONARY OR DO HUERISTICS MAKE SURE YOUR WORD GENERATION
+ALGORITHM IS CORRECT FIRST.
+
+HERE IS A SKETCH OF HOW TO DO WRITE JUST ENOUGH TO VERIFY YOU ARE CORRECTLY GENERATING
+ALL POSSIBLE WORDS FROM THE BOGGLE GRID.
+
+Above main declare a static long int numWordsFormed=0;
+
+In main do similar to swamp except instead of a single call to dfs
+	// starting with EVERY letter of board, form all strings from it
+	for every cell [r,c] in the boggle board
+		call DFS(board, r,c, ""); 
+	println numWordsFormed;
+
+Below main write your DFS that only forms and counts wordsformed. 
+Don't search dictionary or do hueristics until you have verified 
+correctness of the words/count generated.
+
+DFS( String[][] board, int r, int c, String word )
+{
+	tack the letter at [r][c] onto the end of your incoming word
+	search dictionary for word
+	if found 
+		.add() it to a hits/matches set
+		optionally while still debugging println the hit  println( word ); // you wont want to do this for grids >= 4
+	else if not found
+		see if the miss is not a prefix of any dictionary word (if not return)
+			return //DONT FORM WORDS FROM THIS MISS PREFIX
+	
+	++numWordsFormed; //see it through the set .size()
+
+	if NORTH's indices [r-1][c] are not out of bounds AND letter at [r-1][c] is unmarked
+		mark the letter at r,c
+		recurse passing in coords of N (relative to current r,c )
+		unmark letter at r,c
+	if NE ...
+	if E  ...
+	if SE ...
+	if S  ...
+	if SW ...
+	if W  ...
+	if NW ...
+}
+	
